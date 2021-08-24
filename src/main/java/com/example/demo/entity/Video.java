@@ -1,15 +1,30 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
 import java.util.Date;
-
+import java.util.List;
+//@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Video implements Serializable {
     private int id;
     private String title;
     private String summary;
     private int price;
     private String coverImg;
+    @JsonFormat(pattern = "yyyy-mm-dd hh:mm:ss",locale = "zh",timezone = "GMT+8")
     private Date createTime;
+    private List<Chapter> chapterList;
+
+    public List<Chapter> getChapterList() {
+        return chapterList;
+    }
+
+    public void setChapterList(List<Chapter> chapterList) {
+        this.chapterList = chapterList;
+    }
+
     public  Video(){}
     public Video(int id,String title){
         this.id=id;
@@ -75,6 +90,7 @@ public class Video implements Serializable {
                 ", price=" + price +
                 ", coverImg='" + coverImg + '\'' +
                 ", createTime=" + createTime +
+                ", chapterList=" + chapterList +
                 '}';
     }
 }

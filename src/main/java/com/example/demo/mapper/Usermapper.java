@@ -4,7 +4,9 @@ import com.example.demo.entity.User;
 import com.example.demo.entity.Video;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -27,6 +29,15 @@ public class Usermapper {
         }
         return null;
     }
+
+    public List<User> listUser(){
+
+        List<User> list = new ArrayList<>();
+        list.addAll(userMap.values());
+        return list;
+    }
+
+
 
 
 }

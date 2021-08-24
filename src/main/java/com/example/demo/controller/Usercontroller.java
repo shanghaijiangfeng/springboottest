@@ -1,13 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.User;
+import com.example.demo.mapper.Usermapper;
 import com.example.demo.service.Userservice;
 import com.example.demo.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
@@ -24,5 +24,10 @@ public class Usercontroller {
         return token !=null?JsonData.bulidSuccess(token):JsonData.bulidError("账号密码错误");
 
 
+    }
+    @GetMapping("list_user")
+    public JsonData listUser(){
+
+        return JsonData.bulidSuccess(userService.listUser());
     }
 }
