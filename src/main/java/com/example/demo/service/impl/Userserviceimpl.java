@@ -14,7 +14,7 @@ import java.util.UUID;
 @Service
 public class Userserviceimpl implements Userservice {
 
-    private static Map<String, User> sessionMap = new HashMap<>();
+    public static Map<String, User> sessionMap = new HashMap<>();
     @Autowired
     private Usermapper userMapper;
     @Override
