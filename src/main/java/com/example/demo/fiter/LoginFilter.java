@@ -4,23 +4,30 @@ import com.example.demo.entity.User;
 import com.example.demo.service.impl.Userserviceimpl;
 import com.example.demo.utils.JsonData;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.util.StringUtils;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebFilter(urlPatterns = "/api/v1/pri/*",filterName = "loginfilter")
+//@WebFilter(urlPatterns = "/api/v1/pri/*", filterName = "loginFilter")
 public class LoginFilter implements Filter {
-    private static final ObjectMapper objectMapper=new ObjectMapper();
 
-//    容器加载的时候
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    /**
+     * 容器加载的时候
+     * @param filterConfig
+     * @throws ServletException
+     */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        System.out.println("init LoginFilter");;
+
+        System.out.println("init LoginFilter======");
     }
 
 
@@ -49,7 +56,7 @@ public class LoginFilter implements Filter {
                 filterChain.doFilter(servletRequest,servletResponse);
             }else {
 
-                JsonData jsonData =  JsonData.bulidError("登录失败，token无效",-2);
+               JsonData jsonData =  JsonData.bulidError("登录失败，token无效",-2);
                 String jsonStr = objectMapper.writeValueAsString(jsonData);
                 renderJson(resp,jsonStr);
 
