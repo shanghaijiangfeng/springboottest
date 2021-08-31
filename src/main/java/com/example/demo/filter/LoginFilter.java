@@ -1,4 +1,4 @@
-package com.example.demo.fiter;
+package com.example.demo.filter;
 
 import com.example.demo.entity.User;
 import com.example.demo.service.impl.Userserviceimpl;
