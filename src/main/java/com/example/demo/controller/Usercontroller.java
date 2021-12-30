@@ -20,7 +20,7 @@ public class Usercontroller {
     @PostMapping("login")
     public JsonData login(@RequestBody User user){
         System.out.println("user="+user.toString());
-        String token=userService.login(user.getUsername(),user.getPwd());
+        String token=userService.login(user.getUsername(),user.getpassword());
         return token !=null?JsonData.bulidSuccess(token):JsonData.bulidError("账号密码错误");
 
 

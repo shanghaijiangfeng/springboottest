@@ -2,6 +2,7 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -11,7 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //启动类里面 @EnableScheduling开启定时任务，自动扫描
 //启动类里面使用@EnableAsync注解开启功能，自动扫描
 
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @ServletComponentScan
 @EnableScheduling
 @EnableAsync

@@ -19,12 +19,12 @@ public class Usermapper {
         userMap.put("harrsion",new User(3,"harrsion","123456"));
     }
 
-    public User login(String username,String pwd){
+    public User login(String username,String password){
         User user = userMap.get(username);
         if(user==null){
             return null;
         }
-        if (user.getPwd().equals(pwd)){
+        if (user.getpassword().equals(password)){
             return user;
         }
         return null;

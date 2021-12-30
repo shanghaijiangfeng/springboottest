@@ -17,9 +17,11 @@ public class Userserviceimpl implements Userservice {
     public static Map<String, User> sessionMap = new HashMap<>();
     @Autowired
     private Usermapper userMapper;
+
+
     @Override
-    public String login(String username, String pwd) {
-        User user=userMapper.login(username,pwd);
+    public String login(String username, String password) {
+        User user=userMapper.login(username,password);
         if (user==null){
             return null;
         }else {

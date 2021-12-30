@@ -5,14 +5,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class User {
     private int id;
     private String username;
+    private String password;
 
-
-    private String pwd;
     public User(){}
-    public User(int id,String username,String pwd){
+    public User(int id,String username,String password){
         this.id=id;
         this.username=username;
-        this.pwd=pwd;
+        this.password=password;
 
     }
 
@@ -21,7 +20,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", pwd='" + pwd + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 
@@ -41,11 +40,11 @@ public class User {
         this.username = username;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getpassword() {
+        return password;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setpassword(String password) {
+        this.password = password;
     }
 }
